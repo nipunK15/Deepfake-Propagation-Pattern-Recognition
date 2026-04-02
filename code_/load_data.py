@@ -2,7 +2,7 @@ import pandas as pd
 
 # Load tweets (tab separated)
 tweets = pd.read_csv(
-    "../data:/rumour_detection/twitter15/source_tweets.txt",
+    "../data_/rumour_detection/twitter15/source_tweets.txt",
     sep="\t",
     names=["id","text"],
     dtype={"id":str}
@@ -10,7 +10,7 @@ tweets = pd.read_csv(
 
 # Load labels (colon separated)
 labels = pd.read_csv(
-    "../data:/rumour_detection/twitter15/label.txt",
+    "../data_/rumour_detection/twitter15/label.txt",
     sep=":",
     names=["label","id"],
     dtype={"id":str}

@@ -3,14 +3,14 @@ import joblib
 import numpy as np
 
 # Load data
-data = pd.read_csv("../results:/features.csv")
+data = pd.read_csv("../results_/features.csv")
 
 # Use ALL numeric features (except id, label)
 X = data.drop(columns=["id","label"])
 
 # Load model
-kmeans = joblib.load("../results:/kmeans_model.pkl")
-scaler = joblib.load("../results:/scaler.pkl")
+kmeans = joblib.load("../results_/kmeans_model.pkl")
+scaler = joblib.load("../results_/scaler.pkl")
 
 # Scale features
 X_scaled = scaler.transform(X)
@@ -58,7 +58,7 @@ def risk_level(conf):
 data["risk_level"] = data["confidence"].apply(risk_level)
 
 # Save
-data.to_csv("../results:/final_output.csv", index=False)
+data.to_csv("../results_/final_output.csv", index=False)
 
 print("Detection completed!")
 print(data.head())

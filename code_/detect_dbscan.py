@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 # Load KMeans final output (contains confidence & explanations)
-data = pd.read_csv("../results:/final_output.csv")
+data = pd.read_csv("../results_/final_output.csv")
 
 # Features
 features = data.drop(columns=["id","label","suspicious","confidence","risk_level","explanation"])
@@ -20,7 +20,7 @@ dbscan_labels = dbscan.fit_predict(X_scaled)
 data["dbscan_suspicious"] = dbscan_labels == -1
 
 # Save enriched DBSCAN file
-data.to_csv("../results:/dbscan_output.csv", index=False)
+data.to_csv("../results_/dbscan_output.csv", index=False)
 
 print("DBSCAN detection completed!")
 print(data["dbscan_suspicious"].value_counts())
